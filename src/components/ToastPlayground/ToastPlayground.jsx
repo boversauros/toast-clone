@@ -2,6 +2,7 @@ import React from 'react'
 import ToastShelf from '../ToastShelf'
 import Button from '../Button'
 import toastImage from '../../assets/toast.png'
+import { ToastContext } from '../ToastProvider'
 
 import styles from './ToastPlayground.module.css'
 
@@ -10,11 +11,8 @@ const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error']
 function ToastPlayground() {
   const [message, setMessage] = React.useState('')
   const [variant, setVariant] = React.useState(VARIANT_OPTIONS[0])
-  const [toasts, setToasts] = React.useState([])
 
-  const onCloseToast = index => {
-    setToasts(toasts.filter((_, i) => i !== index))
-  }
+  const { addToast } = React.useContext(ToastContext)
 
   return (
     <div className={styles.wrapper}>
@@ -23,7 +21,7 @@ function ToastPlayground() {
         <h1>Toast Playground</h1>
       </header>
 
-      <ToastShelf toasts={toasts} onCloseToast={onCloseToast} />
+      <ToastShelf />
 
       <div className={styles.controlsWrapper}>
         <div className={styles.row}>
@@ -66,9 +64,7 @@ function ToastPlayground() {
         <div className={styles.row}>
           <div className={styles.label} />
           <div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
-            <Button
-              onClick={() => setToasts([...toasts, { message, variant }])}
-            >
+            <Button onClick={() => addToast(message, variant)}>
               Pop Toast!
             </Button>
           </div>

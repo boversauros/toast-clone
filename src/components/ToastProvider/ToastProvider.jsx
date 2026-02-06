@@ -11,7 +11,7 @@ function ToastProvider({ children }) {
 
   const addToast = (message, variant) => {
     const newToast = { id: crypto.randomUUID(), message, variant }
-    setToasts([...toasts, newToast])
+    setToasts(prevToasts => [...prevToasts, newToast])
   }
 
   const removeToast = id => {

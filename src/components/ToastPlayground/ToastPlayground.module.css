@@ -34,12 +34,19 @@
 }
 
 .controlsWrapper {
-  color-scheme: light;
-  outline: 2px dashed hsl(250deg 80% 80% / 0.6);
-  outline-offset: 4px;
-  border-radius: 4px;
-  background: white;
-  color: black;
+  color-scheme: dark;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border-color);
+  background: linear-gradient(
+    155deg,
+    var(--glass-bg-strong),
+    hsl(0deg 0% 100% / 0.08)
+  );
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturate));
+  color: hsl(0deg 0% 100% / 0.92);
+  box-shadow: var(--glass-shadow), var(--glass-shadow-inset);
   padding: 16px;
   margin-top: 32px;
 }
@@ -59,13 +66,13 @@
 
 .row:not(:last-of-type) {
   padding-bottom: 16px;
-  border-bottom: 1px dotted hsl(250deg 80% 80% / 0.5);
+  border-bottom: 1px solid hsl(0deg 0% 100% / 0.16);
   margin-bottom: 16px;
 }
 
 .titleMessageWrapper {
   padding-bottom: 16px;
-  border-bottom: 1px dotted hsl(250deg 80% 80% / 0.5);
+  border-bottom: 1px solid hsl(0deg 0% 100% / 0.16);
   margin-bottom: 16px;
 }
 .titleMessageRow {
@@ -99,10 +106,32 @@
   align-items: center;
   gap: 8px;
   width: 100px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  transition: background-color 150ms ease;
+}
+
+.radioWrapper label:hover {
+  background: hsl(0deg 0% 100% / 0.08);
 }
 
 .messageInput {
   display: block;
   width: 100%;
   height: 4rem;
+  border: 1px solid hsl(0deg 0% 100% / 0.28);
+  border-radius: 12px;
+  background: hsl(0deg 0% 100% / 0.1);
+  color: hsl(0deg 0% 100% / 0.95);
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.messageInput:focus-visible {
+  outline: 2px solid hsl(240deg 100% 75% / 0.88);
+  outline-offset: 2px;
+}
+
+.radioWrapper input {
+  accent-color: hsl(240deg 100% 70%);
 }

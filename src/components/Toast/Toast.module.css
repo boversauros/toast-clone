@@ -3,19 +3,53 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  border-radius: 16px;
-  color: black;
-  color-scheme: light;
-  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border-color);
+  color: hsl(0deg 0% 100% / 0.94);
+  color-scheme: dark;
+  background: linear-gradient(
+    150deg,
+    hsl(0deg 0% 100% / 0.22),
+    hsl(0deg 0% 100% / 0.08)
+  );
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturate));
   max-width: 100%;
   width: 350px;
-  box-shadow: var(--shadow-elevation-medium);
+  box-shadow: var(--glass-shadow), var(--glass-shadow-inset);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.toast::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 14% 18%,
+      hsl(0deg 0% 100% / 0.24),
+      transparent 52%
+    ),
+    linear-gradient(
+      140deg,
+      var(--toast-tint-start, transparent),
+      var(--toast-tint-end, transparent)
+    );
+}
+
+.toast > * {
+  position: relative;
+  z-index: 1;
 }
 
 .content {
   flex: 1;
   padding: 12px 0px;
   font-weight: 600;
+  text-shadow: 0 1px 6px hsl(250deg 50% 4% / 0.45);
 }
 
 .iconContainer {
@@ -33,28 +67,40 @@
   background: transparent;
   padding: 16px;
   cursor: pointer;
+  color: inherit;
+  opacity: 0.85;
+  transition: opacity 150ms ease, background-color 150ms ease;
+}
+
+.closeButton:hover {
+  opacity: 1;
+  background: hsl(0deg 0% 100% / 0.08);
 }
 
 .notice {
-  background: var(--color-notice-bg);
+  --toast-tint-start: hsl(235deg 100% 60% / 0.2);
+  --toast-tint-end: hsl(235deg 100% 60% / 0.03);
 }
 .notice .iconContainer {
   color: var(--color-notice);
 }
 .warning {
-  background: var(--color-warning-bg);
+  --toast-tint-start: hsl(38deg 100% 58% / 0.22);
+  --toast-tint-end: hsl(38deg 100% 58% / 0.04);
 }
 .warning .iconContainer {
   color: var(--color-warning);
 }
 .success {
-  background: var(--color-success-bg);
+  --toast-tint-start: hsl(126deg 84% 48% / 0.2);
+  --toast-tint-end: hsl(126deg 84% 48% / 0.04);
 }
 .success .iconContainer {
   color: var(--color-success);
 }
 .error {
-  background: var(--color-error-bg);
+  --toast-tint-start: hsl(345deg 100% 62% / 0.2);
+  --toast-tint-end: hsl(345deg 100% 62% / 0.03);
 }
 .error .iconContainer {
   color: var(--color-error);

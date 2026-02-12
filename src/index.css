@@ -83,6 +83,18 @@ html {
     0.2px 14.7px 15px -2.3px hsl(var(--shadow-color) / 0.19),
     0.3px 22.8px 23.3px -2.7px hsl(var(--shadow-color) / 0.17),
     0.4px 34.2px 34.9px -3.2px hsl(var(--shadow-color) / 0.16);
+
+  --glass-blur: 18px;
+  --glass-saturate: 1.35;
+  --glass-bg: hsl(0deg 0% 100% / 0.12);
+  --glass-bg-strong: hsl(0deg 0% 100% / 0.18);
+  --glass-border-color: hsl(0deg 0% 100% / 0.28);
+  --glass-shadow:
+    0 18px 38px hsl(var(--shadow-color) / 0.34),
+    0 6px 16px hsl(var(--shadow-color) / 0.2);
+  --glass-shadow-inset:
+    inset 0 1px 1px hsl(0deg 0% 100% / 0.34),
+    inset 0 -1px 1px hsl(0deg 0% 100% / 0.1);
 }
 
 body {
@@ -95,4 +107,13 @@ body {
     hsl(250deg 40% 20%),
     hsl(240deg 40% 5%)
   );
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  html {
+    --glass-blur: 8px;
+    --glass-bg: hsl(0deg 0% 100% / 0.24);
+    --glass-bg-strong: hsl(0deg 0% 100% / 0.3);
+    --glass-border-color: hsl(0deg 0% 100% / 0.42);
+  }
 }

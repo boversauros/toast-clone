@@ -5,8 +5,8 @@
   background:
     linear-gradient(
       160deg,
-      hsl(255deg 95% 68% / 0.38),
-      hsl(276deg 88% 66% / 0.18)
+      hsl(211deg 92% 72% / 0.36),
+      hsl(198deg 100% 76% / 0.12)
     ),
     linear-gradient(
       150deg,
@@ -19,11 +19,12 @@
     saturate(var(--glass-saturate));
   color: hsl(0deg 0% 100% / 0.95);
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
   cursor: pointer;
   outline-offset: 4px;
   box-shadow:
-    0 10px 24px hsl(250deg 60% 8% / 0.4),
+    0 10px 24px hsl(220deg 45% 4% / 0.45),
     inset 0 1px 1px hsl(0deg 0% 100% / 0.32);
   transition: transform 120ms ease, box-shadow 160ms ease, filter 160ms ease;
 }
@@ -36,6 +37,6 @@
 .button:active {
   transform: translateY(0px);
   box-shadow:
-    0 4px 12px hsl(250deg 60% 8% / 0.36),
+    0 4px 12px hsl(220deg 45% 4% / 0.4),
     inset 0 1px 1px hsl(0deg 0% 100% / 0.24);
 }

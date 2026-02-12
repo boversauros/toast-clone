@@ -9,8 +9,8 @@
   color-scheme: dark;
   background: linear-gradient(
     150deg,
-    hsl(0deg 0% 100% / 0.22),
-    hsl(0deg 0% 100% / 0.08)
+    hsl(0deg 0% 100% / 0.2),
+    hsl(0deg 0% 100% / 0.06)
   );
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   -webkit-backdrop-filter: blur(var(--glass-blur))
@@ -49,7 +49,7 @@
   flex: 1;
   padding: 12px 0px;
   font-weight: 600;
-  text-shadow: 0 1px 6px hsl(250deg 50% 4% / 0.45);
+  text-shadow: 0 1px 6px hsl(220deg 30% 3% / 0.42);
 }
 
 .iconContainer {
@@ -68,39 +68,48 @@
   padding: 16px;
   cursor: pointer;
   color: inherit;
-  opacity: 0.85;
-  transition: opacity 150ms ease, background-color 150ms ease;
+  opacity: 0.82;
+  transition: opacity 220ms ease;
 }
 
 .closeButton:hover {
   opacity: 1;
-  background: hsl(0deg 0% 100% / 0.08);
+}
+
+.closeButton svg {
+  transition: transform 220ms ease, stroke-width 220ms ease;
+  transform-origin: center;
+}
+
+.closeButton:hover svg {
+  transform: scale(1.08);
+  stroke-width: 2.35;
 }
 
 .notice {
-  --toast-tint-start: hsl(235deg 100% 60% / 0.2);
-  --toast-tint-end: hsl(235deg 100% 60% / 0.03);
+  --toast-tint-start: hsl(210deg 96% 64% / 0.2);
+  --toast-tint-end: hsl(210deg 96% 64% / 0.03);
 }
 .notice .iconContainer {
   color: var(--color-notice);
 }
 .warning {
-  --toast-tint-start: hsl(38deg 100% 58% / 0.22);
-  --toast-tint-end: hsl(38deg 100% 58% / 0.04);
+  --toast-tint-start: hsl(34deg 100% 62% / 0.22);
+  --toast-tint-end: hsl(34deg 100% 62% / 0.04);
 }
 .warning .iconContainer {
   color: var(--color-warning);
 }
 .success {
-  --toast-tint-start: hsl(126deg 84% 48% / 0.2);
-  --toast-tint-end: hsl(126deg 84% 48% / 0.04);
+  --toast-tint-start: hsl(142deg 61% 50% / 0.2);
+  --toast-tint-end: hsl(142deg 61% 50% / 0.04);
 }
 .success .iconContainer {
   color: var(--color-success);
 }
 .error {
-  --toast-tint-start: hsl(345deg 100% 62% / 0.2);
-  --toast-tint-end: hsl(345deg 100% 62% / 0.03);
+  --toast-tint-start: hsl(354deg 100% 68% / 0.2);
+  --toast-tint-end: hsl(354deg 100% 68% / 0.03);
 }
 .error .iconContainer {
   color: var(--color-error);

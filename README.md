@@ -7,4 +7,4 @@ A simple React toast notification component.
 ## Setup
 
 pnpm install
-pnpm run dev
+pnpm dev
